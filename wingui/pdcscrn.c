@@ -947,6 +947,12 @@ or Rain or one's own programs.  */
 INLINE int set_default_sizes_from_registry( const int n_cols, const int n_rows,
                const int xloc, const int yloc)
 {
+    INTENTIONALLY_UNUSED_PARAMETER(n_cols);
+    INTENTIONALLY_UNUSED_PARAMETER(n_rows);
+    INTENTIONALLY_UNUSED_PARAMETER(xloc);
+    INTENTIONALLY_UNUSED_PARAMETER(yloc);
+    return 1;
+#if 0
     DWORD is_new_key;
     HKEY hNewKey;
     long rval = RegCreateKeyEx( HKEY_CURRENT_USER, _T( "SOFTWARE\\PDCurses"),
@@ -979,6 +985,7 @@ INLINE int set_default_sizes_from_registry( const int n_cols, const int n_rows,
     }
     debug_printf( "Size: %d %d; %d\n", n_cols, n_rows, rval);
     return( rval != ERROR_SUCCESS);
+#endif
 }
 
 static void adjust_font_size( const int font_size_change)
@@ -1116,6 +1123,12 @@ static int keep_size_within_bounds( int *lines, int *cols)
 INLINE int get_default_sizes_from_registry( int *n_cols, int *n_rows,
                                      int *xloc, int *yloc)
 {
+    INTENTIONALLY_UNUSED_PARAMETER(n_cols);
+    INTENTIONALLY_UNUSED_PARAMETER(n_rows);
+    INTENTIONALLY_UNUSED_PARAMETER(xloc);
+    INTENTIONALLY_UNUSED_PARAMETER(yloc);
+    return 1;
+#if 0
     TCHAR data[100];
     DWORD size_out = sizeof( data);
     HKEY hKey = 0;
@@ -1156,6 +1169,7 @@ INLINE int get_default_sizes_from_registry( int *n_cols, int *n_rows,
     if( rval != ERROR_SUCCESS)
         debug_printf( "get_default_sizes_from_registry error: %d\n", rval);
     return( rval != ERROR_SUCCESS);
+#endif
 }
 
 /* Ensure that the dragged rectangle    */
